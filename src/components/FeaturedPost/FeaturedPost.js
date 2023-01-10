@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FeaturedPost.css';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import { NavLink } from "react-router-dom";
 
 
 function FeaturedPost(props)  {
@@ -24,7 +25,8 @@ function FeaturedPost(props)  {
               <div className='postLimited'>
                 {ReactHtmlParser(props.post.html)}
               </div>
-              <div className='readMore'>Read More</div>
+
+              <div className='readMore'><NavLink to={`/${props.post.title}`}>Read More</NavLink></div>
             </div>
           </div>
       }

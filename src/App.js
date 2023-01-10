@@ -5,6 +5,7 @@ import { collection, getDocs, onSnapshot, doc } from "firebase/firestore";
 import { useEffect, useState } from 'react';
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import BlogPage from "./components/BlogPage/BlogPage";
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -33,6 +34,8 @@ function App() {
         <Route index path='/home' element={<Home posts={posts}/>}></Route>
         <Route path='/login' element={<Login db={db} posts={posts}/>}></Route>
         <Route path="*" element={<Navigate to="/home" replace />} />
+        <Route path="/:title" element={<BlogPage />}></Route>
+
       </Routes>
     </div>
   );
