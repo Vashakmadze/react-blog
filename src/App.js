@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 
+
 function App() {
 
   const [posts, SetPosts] = useState([]);
@@ -23,6 +24,7 @@ function App() {
 
   useEffect(()=>{
       fetchPost();
+      document.title = "Liza's Blog";
   }, []);
 
   return (

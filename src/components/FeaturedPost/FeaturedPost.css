@@ -1,4 +1,6 @@
-.FeaturedPost {}
+.FeaturedPost {
+    margin-top: 3rem;
+}
 
 .postContainer {
     display: flex;
@@ -24,8 +26,8 @@
 }
 
 .postTitleText {
-    font-size: 48px;
-    line-height: 52px;
+    font-size: 3rem;
+    line-height: 3.25rem;
     text-align: start;
     font-weight: 400;
 }
@@ -68,5 +70,21 @@
     -webkit-transition: 0.2;
     -o-transition: 0.2;
     transition: 0.2;
+}
+
+@media only screen and (max-width: 1380px) {
+    .postContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .postContent {
+        width: 100%;
+    }
+
+    .coverImage {
+        width: 100%;
+    }
 }
 

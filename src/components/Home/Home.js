@@ -11,7 +11,7 @@ function Home(props) {
     <div className="Home">
       <Header />
       <FeaturedPost post={getFeatured(props.posts)}/>
-      <Posts />
+      <Posts posts={props.posts}/>
     </div>
   )
 
