@@ -5,13 +5,26 @@ import Header from "../Header/Header";
 import FeaturedPost from "../FeaturedPost/FeaturedPost";
 import Posts from "../Posts/Posts";
 
-const Home = () => (
-  <div className="Home">
+function Home(props) {
+
+  return (
+    <div className="Home">
       <Header />
-      <FeaturedPost />
+      <FeaturedPost post={getFeatured(props.posts)}/>
       <Posts />
-  </div>
-);
+    </div>
+  )
+
+};
+
+function getFeatured(arrayOfObjects) {
+  for(let object of arrayOfObjects) {
+    if(object.featured === true) {
+      return object;
+    }
+  }
+  return arrayOfObjects[0];
+}
 
 Home.propTypes = {};
 

@@ -8,11 +8,19 @@ import { addDoc, doc, deleteDoc, collection, updateDoc } from "firebase/firestor
 
 function submit(tag, value, db, title, image) {
   const inputRef = collection(db, "posts");
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  let today = new Date().toLocaleDateString("en-US", options);
   addDoc(inputRef, {
       html: value,
       tag: tag,
       title: title,
       image: image,
+      date: today,
       featured: false
   });
   alert("Entire Document titled " + title + " has been added successfully.")
@@ -98,7 +106,6 @@ function Login(props) {
       <button className="button-55" onClick={() => submit(tag, value, props.db, title, image)}>Submit</button>
       <div className='posts'>
         <h1>Manage your posts from here</h1>
-
         {
           props.posts !== undefined && 
             props.posts.map((item) => {
