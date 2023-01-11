@@ -6,7 +6,10 @@ import { BsInstagram, BsFacebook } from "react-icons/bs";
 
 const Footer = () => (
   <div className="Footer">
-    Footer Component
+    <div className='socials'>
+      <BsFacebook />
+      <BsInstagram />
+    </div>
   </div>
 );
 

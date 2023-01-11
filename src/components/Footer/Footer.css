@@ -1,4 +1,17 @@
 .Footer {
-    position: fixed;
+    position: static;
     bottom: 0;
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.socials {
+    margin: 2rem auto;
+}
+
+.socials > * {
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
 }
