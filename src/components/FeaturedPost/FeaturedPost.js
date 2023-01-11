@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FeaturedPost.css';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 import { NavLink } from "react-router-dom";
 
 
 function FeaturedPost(props)  {
+  const item = props.post;
   return (
     <div className="FeaturedPost">
       {
@@ -16,17 +17,17 @@ function FeaturedPost(props)  {
             </div>
             <div className='postContent'>
               <div className='postTitle'>
-                <h1 className='postTitleText'>{props.post.title}</h1>
+                <h1 className='postTitleText'>{item.title}</h1>
               </div>
               <div className='postTags'>
-                <p className='postTag'>{props.post.tag} /&nbsp;</p>
-                <p className='postDate'> {props.post.date}</p>
+                <p className='postTag'>{item.tag} /&nbsp;</p>
+                <p className='postDate'> {item.date}</p>
               </div>
               <div className='postLimited'>
-                {ReactHtmlParser(props.post.html)}
+                {ReactHtmlParser(item.html)}
               </div>
 
-              <div className='readMore'><NavLink to={`/${props.post.title}`}>Read More</NavLink></div>
+              <div className='readMore'><NavLink to={`/${item.title}`} state={item}>Read More</NavLink></div>
             </div>
           </div>
       }

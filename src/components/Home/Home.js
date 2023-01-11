@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
-import Header from "../Header/Header";
 import FeaturedPost from "../FeaturedPost/FeaturedPost";
 import Posts from "../Posts/Posts";
 
@@ -9,8 +8,8 @@ function Home(props) {
 
   return (
     <div className="Home">
-      <Header />
       <FeaturedPost post={getFeatured(props.posts)}/>
+      <h1 className='postsHeader'>Latest Posts</h1>
       <Posts posts={props.posts}/>
     </div>
   )

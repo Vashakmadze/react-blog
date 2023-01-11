@@ -57,6 +57,12 @@
     text-align: start;
     font-weight: 600;
     cursor: pointer;
+    transition: .5s;    
+}
+
+.readMore:hover {
+    opacity: 50%;
+    transition: .5s;
 }
 
 .readMore::before {
