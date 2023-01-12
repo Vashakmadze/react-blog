@@ -44,10 +44,13 @@ function App() {
     })
   }
 
-  fetchPost();
   useEffect(()=>{
     document.title = "Liza's Blog";
   }, []);
+
+  useEffect(() => {
+    fetchPost();
+  })
   
   return (
     <div className="App container">
