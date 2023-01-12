@@ -8,17 +8,18 @@ import ReactHtmlParser from 'react-html-parser';
 function BlogPage() {
   const location = useLocation()
   const data = location.state;
+
   return (
     <>
-    <div className="BlogPage">
-      <img className='coverImageBlog' src={data.image} alt="Blog cover media" title="Blog cover media" />
-      <div className='postBlog'>
-        <h1 className='pageTitle'>{data.title}</h1>
-        <div className='input'>
-          {ReactHtmlParser(data.html)}
+      <div className="BlogPage">
+        <img className='coverImageBlog' src={data.image} alt="Blog cover media" title="Blog cover media" />
+        <div className='postBlog'>
+          <h1 className='pageTitle'>{data.title}</h1>
+          <div className='input'>
+            {ReactHtmlParser(data.html)}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
