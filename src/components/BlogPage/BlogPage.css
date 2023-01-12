@@ -1,1 +1,20 @@
 .BlogPage {}
+
+.postBlog {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageTitle {
+    text-align: start;
+    margin: 1rem 0;
+}
+
+.coverImageBlog {
+    max-width: 60%;
+}
+
+.input > p {
+    text-align: start;
+    font-size: 1.5rem;
+}
