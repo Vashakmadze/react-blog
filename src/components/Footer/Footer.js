@@ -7,8 +7,8 @@ import { BsInstagram, BsFacebook } from "react-icons/bs";
 const Footer = () => (
   <div className="Footer">
     <div className='socials'>
-      <BsFacebook />
-      <BsInstagram />
+      <a href='https://www.facebook.com/lizaachkaaaa'><BsFacebook /></a>
+      <a href='https://www.instagram.com/metonidzeliza/'><BsInstagram /></a>
     </div>
   </div>
 );

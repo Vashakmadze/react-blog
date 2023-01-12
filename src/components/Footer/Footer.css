@@ -10,14 +10,14 @@
     margin: 2rem auto;
 }
 
-.socials > * {
+.socials > a > * {
     font-size: 2rem;
     margin: 1rem;
     text-align: center;
     transition: .5s;
 }
 
-.socials > *:hover {
+.socials > a > *:hover {
     opacity: 50%;
     transition: .5s;
     cursor: pointer;
