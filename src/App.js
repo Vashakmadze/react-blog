@@ -24,7 +24,6 @@ function populateArray(data, keyword) {
 function App() {
 
   const [posts, SetPosts] = useState([]);
-  const [featured, setFeatured] = useState();
   const [selfcare, setSelfcare] = useState([]);
   const [mind, setMind] = useState([]);
   const [food, setFood] = useState([]);
@@ -32,7 +31,6 @@ function App() {
   const fetchPost = async () => { 
     await getDocs(collection(db, "posts")).then((querySnapshot)=> {               
       const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id }));
-        setFeatured(posts);
         SetPosts(newData);
         setSelfcare(populateArray(newData, "selfcare"));
         setMind(populateArray(newData, "mind"));
