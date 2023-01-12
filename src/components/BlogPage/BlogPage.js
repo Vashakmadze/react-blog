@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './BlogPage.css';
 import { useLocation } from 'react-router-dom'
@@ -8,7 +8,6 @@ import ReactHtmlParser from 'react-html-parser';
 function BlogPage() {
   const location = useLocation()
   const data = location.state;
-
   return (
     <>
     { data.image !== null && 

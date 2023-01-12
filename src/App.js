@@ -46,13 +46,13 @@ function App() {
     <div className="App container">
       <Header />
       <Routes>
-        <Route index path='/home' element={<Home posts={posts}/>}></Route>
-        <Route path='/login' element={<Login db={db} posts={posts}/>}></Route>
-        <Route path="*" element={<Navigate to="/home" replace />} />
-        <Route path="/:title" element={<BlogPage />}></Route>
-        <Route path="/food" element={<Posts posts={food}/>}></Route>
-        <Route path="/mind" element={<Posts posts={mind}/>}></Route>
-        <Route path="/selfcare" element={<Posts posts={selfcare}/>}></Route>
+        <Route index path='/react-blog/home' element={<Home posts={posts}/>}></Route>
+        <Route path='/react-blog/login' element={<Login db={db} posts={posts}/>}></Route>
+        <Route path="*" element={<Navigate to="/react-blog/home" replace />} />
+        <Route path="/react-blog/:title" element={<BlogPage />}></Route>
+        <Route path="/react-blog/food" element={<Posts posts={food}/>}></Route>
+        <Route path="/react-blog/mind" element={<Posts posts={mind}/>}></Route>
+        <Route path="/react-blog/selfcare" element={<Posts posts={selfcare}/>}></Route>
       </Routes>
       <Footer />
     </div>

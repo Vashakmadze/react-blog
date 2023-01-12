@@ -27,7 +27,7 @@ function FeaturedPost(props)  {
                 {ReactHtmlParser(item.html)}
               </div>
 
-              <div className='readMore'><NavLink to={`/${item.title}`} state={item}>Read More</NavLink></div>
+              <div className='readMore'><NavLink to={`/react-blog/${item.title}`} state={item}>Read More</NavLink></div>
             </div>
           </div>
       }
