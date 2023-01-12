@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Header.css';
-import { BsSearch } from "react-icons/bs";
+import { FiLogIn } from "react-icons/fi";
 import { NavLink } from 'react-router-dom';
 
 
@@ -17,7 +17,7 @@ const Header = () => (
       </ul>
     </nav>
     <div className='search'>
-      <BsSearch />
+      <NavLink to={`/react-blog/login`}><FiLogIn /></NavLink>
     </div>
   </header>
 );

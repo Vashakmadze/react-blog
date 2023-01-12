@@ -96,3 +96,12 @@ input {
 .featured {
   color: purple;
 }
+
+.authentication {
+  display: flex;
+  flex-direction: column;
+}
+
+.authentication > * {
+  margin: 1rem;
+}

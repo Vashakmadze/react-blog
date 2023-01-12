@@ -27,27 +27,34 @@ function App() {
   const [selfcare, setSelfcare] = useState([]);
   const [mind, setMind] = useState([]);
   const [food, setFood] = useState([]);
+  const [loginInfo, setLoginInfo] = useState();
 
   const fetchPost = async () => { 
     await getDocs(collection(db, "posts")).then((querySnapshot)=> {               
       const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id }));
-        SetPosts(newData);
-        setSelfcare(populateArray(newData, "selfcare"));
-        setMind(populateArray(newData, "mind"));
-        setFood(populateArray(newData, "food"));
+      SetPosts(newData);
+      setSelfcare(populateArray(newData, "selfcare"));
+      setMind(populateArray(newData, "mind"));
+      setFood(populateArray(newData, "food"));
+    })
+
+    await getDocs(collection(db, "users")).then((querySnapshot)=> {
+      const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id}));
+      setLoginInfo(newData);
     })
   }
+
   fetchPost();
   useEffect(()=>{
     document.title = "Liza's Blog";
   }, []);
-
+  
   return (
     <div className="App container">
       <Header />
       <Routes>
         <Route index path='/react-blog/home' element={<Home posts={posts}/>}></Route>
-        <Route path='/react-blog/login' element={<Login db={db} posts={posts}/>}></Route>
+        <Route path='/react-blog/login' element={<Login db={db} posts={posts} users={loginInfo}/>}></Route>
         <Route path="*" element={<Navigate to="/react-blog/home" replace />} />
         <Route path="/react-blog/:title" element={<BlogPage />}></Route>
         <Route path="/react-blog/food" element={<Posts posts={food}/>}></Route>

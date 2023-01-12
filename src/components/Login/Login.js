@@ -63,6 +63,15 @@ function imageHandler(quill) {
   }
 }
 
+function authenticate(username, password, data) {
+  if(username === data[0].username && password === data[0].password) {
+    return true;
+  } else {
+    alert("Username and password doesn't match")
+    return false;
+  }
+}
+
 function Login(props) {
 
   const { quill, quillRef } = useQuill();
@@ -70,6 +79,9 @@ function Login(props) {
   const [ tag, setTag ] = useState();
   const [ title, setTitle] = useState();
   const [ image, setImage] = useState();
+  const [ username, setUsername ] = useState();
+  const [ password, setPassword ] = useState();
+  const [ authenticated, setAuthenticated] = useState();
  
   useEffect(() => {
     if (quill) {
@@ -80,54 +92,72 @@ function Login(props) {
     }
   }, [quill]);
 
-  return (
-    <div className="Login">
-      <div className='titleText'>
-        <label>
-          Enter title for your post here: <br/>
-          <input type="text" value={title} name="title" onChange={(e) => setTitle(e.target.value)} />
-        </label>
+  if(authenticated) {
+    return (
+      <div className="Login">
+        <div className='titleText'>
+          <label>
+            Enter title for your post here: <br/>
+            <input type="text" value={title} name="title" onChange={(e) => setTitle(e.target.value)} />
+          </label>
+        </div>
+        <div className='cover'>
+          <label>
+            Enter cover image url your post here: <br/>
+            <input type="text" value={image} name="image" onChange={(e) => setImage(e.target.value)} />
+          </label>
+        </div>
+        <div className='editor' ref={quillRef} />
+        <div className='tags' onChange={(e) => setTag(e.target.value)}>
+          <h3 className='label-tags'>Choose tags for the blog: </h3><br/>
+          <label>
+            <input type="radio" value="food" name="tag" />
+            Food
+          </label>
+          <label>
+            <input type="radio" value="mind" name="tag" /> 
+            Mind
+          </label>
+          <label>
+            <input type="radio" value="selfcare" name="tag" /> 
+            Selfcare
+          </label>
+        </div>
+        <button className="button-55" onClick={() => submit(tag, value, props.db, title, image)}>Submit</button>
+        <div className='posts'>
+          <h1>Manage your posts from here</h1>
+          {
+            props.posts !== undefined && 
+              props.posts.map((item) => {
+                return (
+                  <div className='post' key={item.id}>
+                    <h3 className='tag'>{item.title}</h3>
+                    <div className='delete' onClick={() => deletePost(item.id, props.db, item.title)}>Delete</div>
+                    <div className='featured' onClick={() => featurePost(item.id, props.db, item.title, props.posts)}>Feature Post</div> 
+                  </div>
+                );
+              })
+          }
+        </div>
       </div>
-      <div className='cover'>
+    )
+  } else {
+    return (
+      <>
+      <div className='authentication'>
         <label>
-          Enter cover image url your post here: <br/>
-          <input type="text" value={image} name="image" onChange={(e) => setImage(e.target.value)} />
+          Enter Username here: <br />
+          <input type="text" value={username} name="username" onChange={(e) => setUsername(e.target.value)} />
+        </label><label>
+          Enter password here: <br />
+          <input type="password" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
         </label>
+        <button className="button-55" onClick={() => setAuthenticated(authenticate(username, password, props.users))}>Submit</button>
       </div>
-      <div className='editor' ref={quillRef} />
-      <div className='tags' onChange={(e) => setTag(e.target.value)}>
-        <h3 className='label-tags'>Choose tags for the blog: </h3><br/>
-        <label>
-          <input type="radio" value="food" name="tag" />
-          Food
-        </label>
-        <label>
-          <input type="radio" value="mind" name="tag" /> 
-          Mind
-        </label>
-        <label>
-          <input type="radio" value="selfcare" name="tag" /> 
-          Selfcare
-        </label>
-      </div>
-      <button className="button-55" onClick={() => submit(tag, value, props.db, title, image)}>Submit</button>
-      <div className='posts'>
-        <h1>Manage your posts from here</h1>
-        {
-          props.posts !== undefined && 
-            props.posts.map((item) => {
-              return (
-                <div className='post' key={item.id}>
-                  <h3 className='tag'>{item.title}</h3>
-                  <div className='delete' onClick={() => deletePost(item.id, props.db, item.title)}>Delete</div>
-                  <div className='featured' onClick={() => featurePost(item.id, props.db, item.title, props.posts)}>Feature Post</div> 
-                </div>
-              );
-            })
-        }
-      </div>
-    </div>
-  )
+      </>
+    )
+  }
+
 };
 
 Login.propTypes = {};
