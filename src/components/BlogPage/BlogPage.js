@@ -11,6 +11,7 @@ function BlogPage() {
 
   return (
     <>
+    { data.image !== null && 
       <div className="BlogPage">
         <img className='coverImageBlog' src={data.image} alt="Blog cover media" title="Blog cover media" />
         <div className='postBlog'>
@@ -19,7 +20,8 @@ function BlogPage() {
             {ReactHtmlParser(data.html)}
           </div>
         </div>
-      </div>
+    </div>
+    }
     </>
   );
 };
