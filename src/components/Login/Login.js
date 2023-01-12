@@ -5,7 +5,6 @@ import 'react-quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
 import { addDoc, doc, deleteDoc, collection, updateDoc } from "firebase/firestore"; 
 
-
 function submit(tag, value, db, title, image) {
   const inputRef = collection(db, "posts");
   const options = {
@@ -24,7 +23,6 @@ function submit(tag, value, db, title, image) {
       featured: false
   });
   alert("Entire Document titled " + title + " has been added successfully.")
-
 }
 
 function deletePost(id, db, title) {
@@ -57,6 +55,14 @@ function featurePost(id, db, title, posts) {
 
 }
 
+function imageHandler(quill) {
+  let range = quill.getSelection();
+  let value = prompt("Enter image link here: ");
+  if(value) {
+    quill.insertEmbed(range.index, "image", value);
+  }
+}
+
 function Login(props) {
 
   const { quill, quillRef } = useQuill();
@@ -67,6 +73,7 @@ function Login(props) {
  
   useEffect(() => {
     if (quill) {
+      quill.getModule('toolbar').addHandler('image', () => imageHandler(quill));
       quill.on('text-change', () => {
         setValue(quillRef.current.firstChild.innerHTML)
       });

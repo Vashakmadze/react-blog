@@ -37,10 +37,9 @@ function App() {
         setFood(populateArray(newData, "food"));
     })
   }
-
+  fetchPost();
   useEffect(()=>{
-      fetchPost();
-      document.title = "Liza's Blog";
+    document.title = "Liza's Blog";
   }, []);
 
   return (

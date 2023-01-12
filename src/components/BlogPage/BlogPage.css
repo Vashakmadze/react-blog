@@ -1,4 +1,6 @@
-.BlogPage {}
+.BlogPage {
+    margin-top: 3rem;
+}
 
 .postBlog {
     display: flex;
@@ -17,4 +19,8 @@
 .input > p {
     text-align: start;
     font-size: 1.5rem;
+}
+
+.input img {
+    max-width: 100%;
 }
