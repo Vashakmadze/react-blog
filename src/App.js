@@ -45,12 +45,9 @@ function App() {
   }
 
   useEffect(()=>{
+    fetchPost();
     document.title = "Liza's Blog";
   }, []);
-
-  useEffect(() => {
-    fetchPost();
-  })
   
   return (
     <div className="App container">
