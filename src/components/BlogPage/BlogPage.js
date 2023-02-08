@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './BlogPage.css';
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import ReactHtmlParser from 'react-html-parser';
 
 
-function BlogPage() {
-  const location = useLocation()
-  const data = location.state;
+function BlogPage(props) {
+
+  const blogId = useParams();
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    props.posts.forEach(element => {
+      if(element.id === blogId.id) {
+        setPost(element);
+      }
+    });
+  }, [props])
+
   return (
     <>
-    { data.image !== null && 
+    { post.image !== null && 
       <div className="BlogPage">
-        <img className='coverImageBlog' src={data.image} alt="Blog cover media" title="Blog cover media" />
+        <img className='coverImageBlog' src={post.image} alt="Blog cover media" title="Blog cover media" />
         <div className='postBlog'>
-          <h1 className='pageTitle'>{data.title}</h1>
+          <h1 className='pageTitle'>{post.title}</h1>
           <div className='input'>
-            {ReactHtmlParser(data.html)}
+            {ReactHtmlParser(post.html)}
           </div>
         </div>
     </div>

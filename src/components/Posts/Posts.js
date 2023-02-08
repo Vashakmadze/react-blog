@@ -13,7 +13,7 @@ function Posts(props) {
           {props.posts.map((item) => {
             return (
               <div className='card masonary-brick  masonary-brick--h' key={item.title}>
-                <NavLink to={`/react-blog/${item.title}`} state={item}>
+                <NavLink to={`/react-blog/${item.id}`} state={item}>
                   <img className='masonary-img' src={item.image} />
                   <div className='titleBlog'>
                     <h2 className='masonaryTitle'>{item.title}</h2>

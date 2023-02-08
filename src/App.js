@@ -55,7 +55,7 @@ function App() {
         <Route index path='/react-blog/' element={<Home posts={posts}/>}></Route>
         <Route path='/react-blog/login' element={<Login db={db} posts={posts} users={loginInfo}/>}></Route>
         <Route path="*" element={<Navigate to="/react-blog/" replace />} />
-        <Route path="/react-blog/:title" element={<BlogPage />}></Route>
+        <Route path="/react-blog/:id" element={<BlogPage posts={posts}/>}></Route>
         <Route path="/react-blog/food" element={<Posts posts={food}/>}></Route>
         <Route path="/react-blog/mind" element={<Posts posts={mind}/>}></Route>
         <Route path="/react-blog/selfcare" element={<Posts posts={selfcare}/>}></Route>
