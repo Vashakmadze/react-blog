@@ -1,5 +1,8 @@
 # Getting Started with Create React App
-Responsive React blog website with Firebase Cloud Firestore, QuillJS as Rich Text Editor with custom handlers and HTMLParser. See website here - https://vashakmadze.github.io/react-blog;
+Responsive React blog website created with Firebase Cloud Firestore, QuillJS as Rich Text Editor with custom handlers and HTMLParser. See website here - https://vashakmadze.github.io/react-blog;
+
+![GIF SHOWCASE](https://github.com/Vashakmadze/react-blog/blob/main/react-gif.gif "WEBSITE SHOWCASE")
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
