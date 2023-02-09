@@ -16,7 +16,6 @@
 }
 
 .masonary--h, .masonary--v {
-    margin-left: -0.5rem;
     counter-reset: brick;
 }
 
@@ -27,7 +26,6 @@
     position: relative;
     display: block;
     transition: 1s;
-
 }
 
 .masonary-brick:hover {
@@ -63,7 +61,6 @@
     font-weight: 600;
     margin: 0.5rem;
 }
-
 
 
 
